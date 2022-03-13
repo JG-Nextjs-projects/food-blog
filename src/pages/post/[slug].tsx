@@ -10,8 +10,14 @@ import { IPost } from '../../types/post';
 import { SITE_URL } from '../../utils/constants';
 import { getAllPosts, getPost } from '../../utils/mdxUtils';
 
-const PostPage = ({ source, frontMatter }) => {
+interface Props {
+  source: string;
+  frontMatter: Omit<IPost, 'slug'>;
+}
+
+const PostPage = ({ source, frontMatter }: Props) => {
   const ogImage = `${SITE_URL}${frontMatter.thumbnail}`;
+  console.log(source);
 
   return (
     <Layout pageTitle={frontMatter.title}>
@@ -42,10 +48,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, data } = getPost(params?.slug as string);
 
   // const mdxSource = await serialize(content, { scope: data });
+  const myContent = await content;
 
   return {
     props: {
       frontMatter: data,
+      source: myContent,
     },
   };
 };
