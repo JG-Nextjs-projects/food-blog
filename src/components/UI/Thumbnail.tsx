@@ -13,7 +13,7 @@ const Thumbnail = ({ title, src, slug }: Props) => {
   return (
     <>
       {slug ? (
-        <Link href={`/posts/${slug}`}>
+        <Link href={`/post/${slug}`}>
           <a aria-label={title}>{image}</a>
         </Link>
       ) : (

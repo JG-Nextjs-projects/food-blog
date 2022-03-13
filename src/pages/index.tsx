@@ -29,7 +29,7 @@ const Home: NextPage<Props> = ({ posts }) => {
             </div>
 
             <h2 className="text-2xl font-bold mb-4">
-              <Link href={`/posts/${post.slug}`}>
+              <Link href={`/post/${post.slug}`}>
                 <a>{post.title}</a>
               </Link>
             </h2>
