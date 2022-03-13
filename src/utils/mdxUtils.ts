@@ -13,7 +13,7 @@ type Post = {
   content: string;
 };
 
-const POSTS_PATH = join(process.cwd(), '_posts');
+const POSTS_PATH = join(process.cwd(), 'src/_posts');
 
 const getPostFilePaths = () => {
   return fs.readdirSync(POSTS_PATH).filter((path) => /\.mdx?$/.test(path));
